@@ -8,20 +8,26 @@ class QuestionPreview extends React.Component {
         console.log(users)
 
         return (
-            <div>
 
-                <div className="question">
-                    <div className="question-avatar">
-                        <img
-                            src={users.johndoe.avatarURL}
-                            alt="pic of avatar" />
+            <div className="question">
+                <div className="question-avatar">
+                    <img
+                        src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/06/06/15/Chris-Pratt.jpg"
+                        alt="pic of avatar"
+                        className="question-avatar-image" />
+                    <div className="question-avatar-caption">
+                        Iain McKenzie
                     </div>
-                    <div className="question-info">
-                        Would you rather?
                 </div>
+                <div className="question-info">
+                    <h3>Would you rather?</h3>
+                    <div className="question-text-preview">
+                        <p>This is the text which will eventually show the question preview.
+                        </p>
+                    </div>
                 </div>
-                }
             </div>
+
 
         )
     }
