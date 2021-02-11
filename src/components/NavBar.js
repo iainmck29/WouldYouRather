@@ -1,28 +1,30 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 class NavBar extends React.Component {
     render() {
         return (
-            <div className="nav">
-                <div className="nav-text">
+            <nav className="nav">
+                <NavLink to="/" exact className="nav-text">
                     Home
-                    </div>
-                <div className="nav-text">
+                    </NavLink>
+                <NavLink to="/add" className="nav-text">
                     Add
-                    </div>
-                <div className="nav-text">
+                    </NavLink>
+                <NavLink to="/leaderboard" className="nav-text">
                     Leaderboard
-                    </div>
+                    </NavLink>
                 <div className="nav-text">
                     UserName
                     </div>
-                <div className="nav-username">
+                <NavLink to="/logout" className="nav-username">
                     Logout
-                    </div>
+                    </NavLink>
 
 
 
-            </div>
+
+            </nav>
         )
     }
 }

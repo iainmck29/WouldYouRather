@@ -1,18 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-class QuestionPreview extends React.Component {
+class LeaderBoardUser extends React.Component {
 
     render() {
-        const { currUser } = this.props
-        console.log(this.props)
+        const { users } = this.props
+        console.log(users)
 
         return (
 
             <div className="question">
                 <div className="question-avatar">
                     <img
-                        src={currUser.avatarURL}
+                        src="https://static.independent.co.uk/s3fs-public/thumbnails/image/2015/06/06/15/Chris-Pratt.jpg"
                         alt="pic of avatar"
                         className="question-avatar-image" />
                     <div className="question-avatar-caption">
@@ -20,9 +20,9 @@ class QuestionPreview extends React.Component {
                     </div>
                 </div>
                 <div className="question-info">
-                    <h3>Would you rather?</h3>
+                    <h3>Leaderboard results</h3>
                     <div className="question-text-preview">
-                        <p>This is the text which will eventually show the question preview.
+                        <p>This is the text which will eventually show the leaderboard preview.
                         </p>
                     </div>
                 </div>
@@ -34,11 +34,4 @@ class QuestionPreview extends React.Component {
 
 }
 
-function mapStateToProps({ users, questions, authedUser }) {
-    const currUser = users['johndoe']
-    return {
-        currUser
-    }
-}
-
-export default connect(mapStateToProps)(QuestionPreview)
+export default LeaderBoardUser

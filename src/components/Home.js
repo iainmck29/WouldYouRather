@@ -7,20 +7,17 @@ import Loading from './Loading'
 class Home extends React.Component {
     render() {
 
-        console.log(this.props)
         return (
             <div>
-                {this.props.loading === true ?
-                    <Loading /> :
-                    <div>
-                        <NavBar />
 
-                        <h2 className="question-header">Questions</h2>
-                        <div className="question-list">
-                            <QuestionPreview />
+                <div className="app-container">
 
-                        </div>
+                    <h2 className="question-header">Questions</h2>
+                    <div className="question-list">
+                        <QuestionPreview />
+
                     </div>
+                </div>
                 }
 
             </div>
@@ -28,11 +25,5 @@ class Home extends React.Component {
     }
 }
 
-function mapStateToProps({ users }) {
-    return {
-        loading: users === {}
 
-    }
-}
-
-export default connect(mapStateToProps)(Home)
+export default connect()(Home)
