@@ -11,3 +11,105 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.container {
+  max-width: 1000px;
+  margin: 0px auto;
+  padding: 10px;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: lightgray;
+  border: 2px solid;
+  max-width: 500px;
+  margin: auto;
+  margin-top: 200px;
+}
+
+.game-title {
+  justify-content: center;
+  text-align: center;
+}
+
+.form-title {
+  margin-left: 10px;
+}
+
+.select-user {
+  width: 200px
+}
+
+.nav-text {
+  font-size: medium;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.nav-user-functions {
+  display: flex;
+  flex-direction: row-reverse;
+
+}
+
+.nav-user {
+  font-size: medium;
+  font-weight: bold;
+  padding: 20px;
+}
+.nav-username {
+  font-size: medium;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.question {
+  width: 100%;
+  max-width: 590px;
+  padding: 10px;
+  display: flex;
+  margin: 0 auto;
+  border: 1px solid #dad7d7;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.question-avatar {
+  flex: 1
+}
+
+.question-avatar-image {
+  height: 50px;
+  width: 50px;
+}
+
+.question-info {
+  flex: 2
+}
+
+.question-header {
+  text-align: center;
+}
+
+.question-list {
+  position: absolute;
+width: 500px;
+height: 750px;
+left: 470px;
+top: 150px;
+
+background: #F2F2F2;
+border: 1px solid #000000;
+box-sizing: border-box;
+}
+
+
+
