@@ -8,6 +8,7 @@ import Add from './Add'
 import NavBar from './NavBar'
 import Leaderboard from './Leaderboard'
 import Logout from './Logout'
+import Answer from './Answer'
 
 class App extends React.Component {
   componentDidMount() {
@@ -27,7 +28,7 @@ class App extends React.Component {
             <Route path="/login" component={Login} />
             <Route path="/leaderboard" component={Leaderboard} />
             <Route path="/logout" component={Logout} />
-            {console.log(this.props.loading)}
+            <Route path="/answer" component={Answer} />
           </div>
         }
       </Router >
@@ -35,9 +36,10 @@ class App extends React.Component {
   }
 }
 
-function mapStateToProps({ users, }) {
+function mapStateToProps({ users, questions }) {
   return {
-    loading: Object.keys(users).length === 0
+    //This may need to be changed to authedUser as this is last action dispatched
+    loading: Object.keys(questions).length === 0
   }
 }
 

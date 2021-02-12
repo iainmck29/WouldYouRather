@@ -23,10 +23,23 @@ ToDos:
 -Extract data for leaderboardUser to show correct amount of q's asked and answered and display in Component
 -Map through all users in data and list them on leaderboard, ordering them from most to least by using the .sort method on the object. Pass id to leaderboardUser to display correct info.
 -Implement logout functionality, setting authedUser to null and redirecting to logout page.
+-Add answer page which allows user to answer questions. Change state based on answer and increase number of answered questions. set questions to answered.
 
 Order of tasks from now:
 Use hardcoded value for login functionality for now to save faff of having to login every time page is reloaded. Implement this function last.
 
 1. Create QuestionPreview functionality, obtaining data from database then displaying in correct areas.
     -api > reducer > action > handler > UI
-    -
+
+2. Alter code to make repeatable list, reading data from state and presenting in a list of QuestionPreview components.
+    - pass data to Home component for list of questions. Use variable to create array of id's and pass this as prop.
+    - map across questions.keys taking the id from the key properties and passing that to QuestionPreview as a prop.
+        - Alter mSTP in Question preview to use the id property passed to it rather than the hard coded value.
+    - alter QuestionPreview to make code repeatable for incoming question data
+    - sort using timestamp for correct order
+
+3. Build add function, allowing the authedUser to add his own questions to the database or state.
+    - User must input an A and B answer and then submit(button).
+    - handler will call dispatch action which should be passed to reducer to be added to the store. The tweet should also be formatted using the method given in the DATA api. This should be done before being added to state.
+    - once operation is done the user should be redirected back to the homepage and will see their question at the top of the pile.
+    - order of events: user submits answers > handler dispatches async action with text values and authedUser > action sends api request to format the question > save question in api is dispatched > action is passed to reducer > user is redirected to home page

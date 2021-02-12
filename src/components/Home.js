@@ -7,16 +7,22 @@ import Loading from './Loading'
 class Home extends React.Component {
     render() {
 
+        const { questIDs } = this.props
+        console.log(questIDs)
         return (
             <div>
 
                 <div className="app-container">
 
                     <h2 className="question-header">Questions</h2>
-                    <div className="question-list">
-                        <QuestionPreview />
+                    <ul className="question-list">
+                        {questIDs.map((id) => (
+                            <li key={id}>
+                                <QuestionPreview id={id} />
+                            </li>
+                        ))}
 
-                    </div>
+                    </ul>
                 </div>
                 }
 
@@ -25,5 +31,11 @@ class Home extends React.Component {
     }
 }
 
+function mapStateToProps({ questions }) {
+    return {
+        questIDs: Object.keys(questions)
+            .sort((a, b) => questions[b].timestamp - questions[a].timestamp)
+    }
+}
 
-export default connect()(Home)
+export default connect(mapStateToProps)(Home)
