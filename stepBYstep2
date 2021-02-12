@@ -1,0 +1,32 @@
+Order of tasks:
+
+Step 1: Break down app into views. Determine look and functionality of each view in app.
+
+Structure:
+-App
+-Nav
+    -Home
+    -Add
+    -Leaderboard
+    -Login
+    -Logout
+
+
+...
+
+
+ToDos:
+-Implement Login functionality and redirect user to login page if user is not logged in.
+-Create functionality on question preview to obtain data from questions and populate correct areas with data
+-Map through all questions in questions data and list them on home page passing data or question id to question preview.
+-Implement add functionality allowing users to append their own questions to the questions in data following the form given in DATA.
+-Extract data for leaderboardUser to show correct amount of q's asked and answered and display in Component
+-Map through all users in data and list them on leaderboard, ordering them from most to least by using the .sort method on the object. Pass id to leaderboardUser to display correct info.
+-Implement logout functionality, setting authedUser to null and redirecting to logout page.
+
+Order of tasks from now:
+Use hardcoded value for login functionality for now to save faff of having to login every time page is reloaded. Implement this function last.
+
+1. Create QuestionPreview functionality, obtaining data from database then displaying in correct areas.
+    -api > reducer > action > handler > UI
+    -

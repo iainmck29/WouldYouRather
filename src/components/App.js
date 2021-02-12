@@ -35,9 +35,9 @@ class App extends React.Component {
   }
 }
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ users, }) {
   return {
-    loading: users === null
+    loading: Object.keys(users).length === 0
   }
 }
 

@@ -4,9 +4,8 @@ import { connect } from 'react-redux'
 class QuestionPreview extends React.Component {
 
     render() {
-        const { currUser } = this.props
-        console.log(this.props)
-
+        const { currUser, questions } = this.props
+        console.log('the current questions are', questions)
         return (
 
             <div className="question">
@@ -16,13 +15,14 @@ class QuestionPreview extends React.Component {
                         alt="pic of avatar"
                         className="question-avatar-image" />
                     <div className="question-avatar-caption">
-                        Iain McKenzie
+                        {currUser.name}
                     </div>
                 </div>
                 <div className="question-info">
                     <h3>Would you rather?</h3>
                     <div className="question-text-preview">
-                        <p>This is the text which will eventually show the question preview.
+                        <p>
+                            new text
                         </p>
                     </div>
                 </div>
@@ -36,8 +36,11 @@ class QuestionPreview extends React.Component {
 
 function mapStateToProps({ users, questions, authedUser }) {
     const currUser = users['johndoe']
+    const currQuest = questions['8xf0y6ziyjabvozdd253nd']
     return {
-        currUser
+        currUser,
+        questions
+
     }
 }
 

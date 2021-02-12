@@ -5,7 +5,6 @@ class Add extends React.Component {
     render() {
         return (
             <div>
-                <NavBar />
 
                 <div className="app-container">
                     <div className="add-container">
