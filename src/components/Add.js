@@ -1,12 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import handleNewQuestion from '../actions/questions'
+import { handleNewQuestion } from '../actions/questions'
+import { Redirect } from 'react-router-dom'
 
 class Add extends React.Component {
 
     state = {
         A: '',
         B: '',
+        toHome: false
     }
 
 
@@ -32,11 +34,20 @@ class Add extends React.Component {
         }
 
         this.props.dispatch(handleNewQuestion(question))
+        this.setState(() => ({
+            A: '',
+            B: '',
+            toHome: true,
+        }))
 
     }
 
     render() {
-        const { A, B } = this.state
+        const { A, B, toHome } = this.state
+
+        if (toHome === true) {
+            return <Redirect to='/' />
+        }
         return (
 
             <div>
@@ -61,7 +72,7 @@ class Add extends React.Component {
 
                     </div>
                 </div>
-            </div>
+            </div >
         )
     }
 }

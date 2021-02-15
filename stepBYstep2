@@ -40,6 +40,18 @@ Use hardcoded value for login functionality for now to save faff of having to lo
 
 3. Build add function, allowing the authedUser to add his own questions to the database or state.
     - User must input an A and B answer and then submit(button).
-    - handler will call dispatch action which should be passed to reducer to be added to the store. The tweet should also be formatted using the method given in the DATA api. This should be done before being added to state.
+    - handler will call dispatch action which should be passed to reducer to be added to the store. The question should also be formatted using the method given in the DATA api. This should be done before being added to state.
+    - action will also need to be called which adds the question id to the users list of questions.
     - once operation is done the user should be redirected back to the homepage and will see their question at the top of the pile.
-    - order of events: user submits answers > handler dispatches async action with text values and authedUser > action sends api request to format the question > save question in api is dispatched > action is passed to reducer > user is redirected to home page
+    - order of events: user submits answers > handler dispatches async action with text values and authedUser > action sends api request to format the question > save question in api is dispatched > action is passed to reducer > user is redirected to home page.
+
+
+4. Build answer function, have two clickable buttons for option A and option B with captions for each. User able to select choice.
+    - Check will be done to see whether user has already answered question. If so buttons will be disabled and an alert will appear informing user.
+    - User selects choice by clicking appropriate button. Each button will have tag for optionOne or optionTwo.
+    - handler dispatches action with choice data included.
+    - async action will send info to database changing following:
+        - in users array, the users answers will have the question id and the chosen answer added.
+        - in questions array, find the question with the matching id param, then alter optionOne or optionTwo depending on which user has chosen. Add users username to list of votes for that particular option.
+    - reducer will inform store of changes and pass new data.
+    - upon completion, user will receive an alert saying thanks for completing and then be redirected back to the homepage.

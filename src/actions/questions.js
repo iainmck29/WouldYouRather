@@ -1,4 +1,5 @@
-import { saveQuestion } from '../utils/api'
+import { saveQuestion, } from '../utils/api'
+import { addQuestionToUser } from './users'
 
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
@@ -12,18 +13,19 @@ export default function receiveQuestions(questions) {
     }
 }
 
-export function addQuestion(question) {
+function addQuestion(question) {
     return {
         type: ADD_QUESTION,
         question
     }
 }
 
+
+
 export function handleNewQuestion(question) {
     return (dispatch) => {
         return saveQuestion(question)
-            .then((formattedQuestion) => (
-                dispatch(addQuestion(formattedQuestion))
-            ))
+            .then((formattedQuestion) => dispatch(addQuestion(formattedQuestion)))
+            .then((formattedQuestion) => dispatch(addQuestionToUser(formattedQuestion)))
     }
 }
