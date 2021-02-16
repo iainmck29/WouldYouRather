@@ -32,6 +32,7 @@ code {
 
 .btn {
   margin: 10px;
+  max-width: 300px;
 }
 
 .container {

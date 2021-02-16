@@ -1,9 +1,11 @@
-import { saveQuestion, } from '../utils/api'
-import { addQuestionToUser } from './users'
+import { saveQuestion, saveQuestionAnswer, } from '../utils/api'
+import { addQuestionToUser, addAnswerToUser } from './users'
 
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const ADD_QUESTION = 'ADD_QUESTION'
+export const HANDLE_USER_ANSWER = 'HANDLE_USER_ANSWER'
+export const ADD_USER_ANSWER = 'ADD_USER_ANSWER'
 
 
 export default function receiveQuestions(questions) {
@@ -20,12 +22,32 @@ function addQuestion(question) {
     }
 }
 
+export function handleUserAnswer(answerData) {
+    return (dispatch) => {
+        return saveQuestionAnswer(answerData)
+            .then(() => {
+                dispatch(addUserAnswer(answerData))
+                dispatch(addAnswerToUser(answerData))
+            })
+    }
+}
+
+function addUserAnswer({ answer, qid, authedUser }) {
+    return {
+        type: ADD_USER_ANSWER,
+        answer,
+        qid,
+        authedUser
+    }
+}
 
 
 export function handleNewQuestion(question) {
     return (dispatch) => {
         return saveQuestion(question)
-            .then((formattedQuestion) => dispatch(addQuestion(formattedQuestion)))
-            .then((formattedQuestion) => dispatch(addQuestionToUser(formattedQuestion)))
+            .then((formattedQuestion) => {
+                dispatch(addQuestion(formattedQuestion))
+                dispatch(addQuestionToUser(formattedQuestion))
+            })
     }
 }

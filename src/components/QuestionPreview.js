@@ -11,7 +11,6 @@ class QuestionPreview extends React.Component {
 
     render() {
         const { currUser, id, currQuest } = this.props
-        console.log(this.props)
         return (
 
             <div className="question">

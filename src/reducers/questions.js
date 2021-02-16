@@ -1,4 +1,5 @@
-import { RECEIVE_QUESTIONS, ADD_QUESTION } from '../actions/questions'
+import { HANDLE_USER_SELECTION } from '../actions/authedUser'
+import { RECEIVE_QUESTIONS, ADD_QUESTION, ADD_USER_ANSWER } from '../actions/questions'
 
 export default function questions(state = {}, action) {
     switch (action.type) {
@@ -12,6 +13,18 @@ export default function questions(state = {}, action) {
             return {
                 ...state,
                 [action.question.id]: action.question
+            }
+
+        case ADD_USER_ANSWER:
+            return {
+                ...state,
+                [action.qid]: {
+                    ...state[action.qid],
+                    [action.answer]: {
+                        ...state[action.qid][action.answer],
+                        votes: state[action.qid][action.answer].votes.concat(action.authedUser)
+                    }
+                }
             }
 
         default:

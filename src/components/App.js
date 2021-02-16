@@ -28,7 +28,7 @@ class App extends React.Component {
             <Route path="/login" component={Login} />
             <Route path="/leaderboard" component={Leaderboard} />
             <Route path="/logout" component={Logout} />
-            <Route path="/answer" component={Answer} />
+            <Route path="/answer/:id" component={Answer} />
           </div>
         }
       </Router >

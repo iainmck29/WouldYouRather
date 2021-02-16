@@ -8,7 +8,6 @@ class Home extends React.Component {
     render() {
 
         const { questIDs } = this.props
-        console.log(questIDs)
         return (
             <div>
 
