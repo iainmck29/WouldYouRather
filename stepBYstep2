@@ -55,3 +55,14 @@ Use hardcoded value for login functionality for now to save faff of having to lo
         - in questions array, find the question with the matching id param, then alter optionOne or optionTwo depending on which user has chosen. Add users username to list of votes for that particular option.
     - reducer will inform store of changes and pass new data.
     - upon completion, user will receive an alert saying thanks for completing and then be redirected back to the homepage.
+
+5. Build leaderboard function. Read the questions answered and questions asked by the user and display these along with a total figure. Use the total figure to sort the users in descending order.
+    - Build LeaderboardUser component which contains necessary information i.e. the amount of q's asked and answered and the total of the two.
+    - Sort these into order with the user with highest total at the top and descending from there.
+
+6. Implement Login functionality. On app page, do check to see if authedUser is true, if not then redirect user to login page where they can select from dropdown list. Implementing on top level will mean the check is always done when a user tries to navigate among the other pages.
+    - Create Login UI, use a dropdown list which maps over users and gives options to the current user. User chooses their selection then submits. Submit handler determines their selection from the name or value of the input and then calls the action passing it that value.
+    - Action is not async so no dispatch required. Reducer takes data from action and then sets the authedUser accordingly.
+    - Once operation is completed user is redirected to the homepage to begin session.
+
+7. Implement Logout functionality. When user clicks logout button they receive an alert saying they've logged out successfully and that if they want to restart they will need to log back in. Consider logout page which will redirect after setTimeout has completed a certain amount of time. Logout will then redirect back to login page.
