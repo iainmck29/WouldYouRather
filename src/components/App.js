@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react'
-import { Redirect, BrowserRouter as Router, Route } from 'react-router-dom'
+import React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Login from './Login'
 import { connect } from 'react-redux'
 import handleInitialData from '../actions/shared'

@@ -37,7 +37,7 @@ class Answer extends React.Component {
     componentDidMount() {
         const { question, users, authedUser } = this.props
 
-        for (let answer of Object.values(users[authedUser].answers)) {
+        for (let answer of Object.keys(users[authedUser].answers)) {
             if (answer === question.id) {
                 this.setState(() => ({
                     answered: true

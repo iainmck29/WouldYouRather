@@ -1,4 +1,3 @@
-import { HANDLE_USER_SELECTION } from '../actions/authedUser'
 import { RECEIVE_QUESTIONS, ADD_QUESTION, ADD_USER_ANSWER } from '../actions/questions'
 
 export default function questions(state = {}, action) {

@@ -1,8 +1,6 @@
 import React from 'react'
-import NavBar from './NavBar'
 import QuestionPreview from './QuestionPreview'
 import { connect } from 'react-redux'
-import Loading from './Loading'
 
 class Home extends React.Component {
     render() {
@@ -23,10 +21,10 @@ class Home extends React.Component {
 
                     </ul>
                 </div>
-                }
-
             </div>
+
         )
+
     }
 }
 
