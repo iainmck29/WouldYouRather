@@ -4,19 +4,24 @@ import handleUserSelection from '../actions/authedUser'
 import { Redirect } from 'react-router-dom'
 
 class Logout extends React.Component {
+    state = {
+        redirect: false
+    }
 
     componentDidMount() {
         setTimeout(() => {
-            <Redirect to='/' />
+            this.props.history.push("/")
             this.props.dispatch(handleUserSelection(null))
         }, 2000);
     }
 
     render() {
+
+
         return (
             <div className="logout">
                 <h1>You have successfully logged out</h1>
-                <button className="btn">Log Back In</button>
+                <h2>You will be redirected to login</h2>
             </div>
         )
     }

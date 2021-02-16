@@ -37,7 +37,7 @@ ToDos:
 -Add answer page which allows user to answer questions. Change state based on answer and increase number of answered questions. set questions to answered.
 
 Order of tasks from now:
-Use hardcoded value for login functionality for now to save faff of having to login every time page is reloaded. Implement this function last.
+Use hardcoded value for login functionality for now to save problem of having to login every time page is reloaded. Implement this function last.
 
 1. Create QuestionPreview functionality, obtaining data from database then displaying in correct areas.
     -api > reducer > action > handler > UI
