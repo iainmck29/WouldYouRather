@@ -52,7 +52,10 @@ class Answer extends React.Component {
 
 
     render() {
-        const { question, users, authedUser } = this.props
+        const { question, users } = this.props
+        const asker = users[question.author]
+
+
         if (this.state.toHome === true) {
             return <Redirect to='/' />
         }
@@ -62,11 +65,11 @@ class Answer extends React.Component {
                 <div className="app-container">
                     <div className="add-container">
                         <img
-                            src={users[authedUser].avatarURL}
+                            src={asker.avatarURL}
                             alt="pic of user"
                             className="question-avatar-image" />
                         <div>
-                            Would You Rather?
+                            {asker.name} asks would you rather?
                         </div>
                         <button className="btn" onClick={this.handleSubmit} name="optionOne" disabled={this.state.answered === true} type='submit'>{question.optionOne.text}</button>
                         <div>
@@ -83,6 +86,7 @@ class Answer extends React.Component {
 function mapStateToProps({ questions, users, authedUser }, props) {
     const { id } = props.match.params
     const question = questions[id]
+
 
     return {
         question,

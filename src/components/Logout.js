@@ -7,6 +7,7 @@ class Logout extends React.Component {
 
     componentDidMount() {
         setTimeout(() => {
+            <Redirect to='/' />
             this.props.dispatch(handleUserSelection(null))
         }, 2000);
     }
