@@ -85,3 +85,9 @@ Use hardcoded value for login functionality for now to save problem of having to
         then
         - Iterate over the questions,
     - Add UI for answered/unanswered and make text clickable. Add state that answered: false by default to show unanswered questions. When text for other is clicked, set the state to the opposite of what it currently is (!prevState or something). Text for other will render on change of state.
+
+9. For answered questions, show how many users have answered that particular question
+
+
+
+    To use this app, simply clone the repo from github to your text editor then start using npm start from the command line! Enjoy!

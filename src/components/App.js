@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Login from './Login'
 import { connect } from 'react-redux'
 import handleInitialData from '../actions/shared'
@@ -9,6 +9,7 @@ import NavBar from './NavBar'
 import Leaderboard from './Leaderboard'
 import Logout from './Logout'
 import Answer from './Answer'
+import NotFound from './404'
 
 
 class App extends React.Component {
@@ -27,12 +28,15 @@ class App extends React.Component {
             :
             (
               <div>
-                <Route path="/" exact component={Home} />
-                <Route path="/add" component={Add} />
-                <Route path="/login" component={Login} />
-                <Route path="/leaderboard" component={Leaderboard} />
-                <Route path="/logout" component={Logout} />
-                <Route path="/answer/:id" component={Answer} />
+                <Switch>
+                  <Route path="/" exact component={Home} />
+                  <Route path="/add" exact component={Add} />
+                  <Route path="/login" exact component={Login} />
+                  <Route path="/leaderboard" exact component={Leaderboard} />
+                  <Route path="/logout" exact component={Logout} />
+                  <Route path="/answer/:id" exact component={Answer} />
+                  <Route component={NotFound} />
+                </Switch>
               </div>
             )
         }

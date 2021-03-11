@@ -54,10 +54,19 @@ class Answer extends React.Component {
     render() {
         const { question, users } = this.props
         const asker = users[question.author]
+        const { invalid } = this.props
 
 
         if (this.state.toHome === true) {
             return <Redirect to='/' />
+        }
+
+        if (invalid) {
+            return (
+                <div>
+                    <h1>Question not found</h1>
+                </div>
+            )
         }
 
         return (
@@ -86,6 +95,12 @@ class Answer extends React.Component {
 function mapStateToProps({ questions, users, authedUser }, props) {
     const { id } = props.match.params
     const question = questions[id]
+
+    if (question === undefined) {
+        return {
+            invalid: true
+        }
+    }
 
 
     return {

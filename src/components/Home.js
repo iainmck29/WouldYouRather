@@ -1,6 +1,7 @@
 import React from 'react'
 import QuestionPreview from './QuestionPreview'
 import { connect } from 'react-redux'
+import AnswerPreview from './AnswerPreview'
 
 class Home extends React.Component {
     state = {
@@ -39,7 +40,7 @@ class Home extends React.Component {
                                 ? ''
                                 :
                                 <li style={{ display: this.state.answered === false ? 'none' : 'block' }} key={id}>
-                                    <QuestionPreview id={id} />
+                                    <AnswerPreview id={id} />
                                 </li>
                         ))}
                     </ul>
